@@ -1,0 +1,13 @@
+[package]
+name = "hydron"
+version = "0.1.0"
+authors = ["Andreas Fischer <home@deviru.de>"]
+
+[dependencies]
+hydron-ui = { path = "../hydron-ui" }
+hydron-template = { path = "../hydron-template" }
+winit = "0.16"
+gl = "*"
+libc = "*"
+glutin = "*"
+cgmath = "0.16.1"
