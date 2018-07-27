@@ -2,5 +2,12 @@
 name = "hydron-template"
 version = "0.1.0"
 authors = ["Andreas Fischer <home@deviru.de>"]
+workspace = "../"
+
+[lib]
+proc-macro = true
 
 [dependencies]
+proc-macro2 = "0.4"
+nom = "4.0.0"
+

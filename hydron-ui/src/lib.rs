@@ -5,6 +5,7 @@ pub mod style;
 pub mod rendering;
 
 mod color;
+mod component;
 mod constraint;
 mod layout;
 mod rect;
@@ -17,3 +18,6 @@ pub use layout::*;
 pub use rect::*;
 pub use size::*;
 pub use surface::*;
+pub use component::VirtualElement;
+pub use component::Component;
+pub use component::TestElement;

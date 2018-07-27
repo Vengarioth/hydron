@@ -2,6 +2,7 @@
 name = "hydron"
 version = "0.1.0"
 authors = ["Andreas Fischer <home@deviru.de>"]
+workspace = "../"
 
 [dependencies]
 hydron-ui = { path = "../hydron-ui" }

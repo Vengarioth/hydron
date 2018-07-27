@@ -1,3 +1,6 @@
+#![feature(proc_macro)]
+#![feature(proc_macro_non_items)]
+
 extern crate libc;
 extern crate gl;
 extern crate glutin;
@@ -13,10 +16,35 @@ use glutin::GlContext;
 use hydron_ui::*;
 use hydron_ui::elements::*;
 use hydron_ui::style::*;
+use hydron_template::template;
 
 use renderer::*;
 
+#[derive(Debug)]
+struct TestComponent {
+    pub foo: usize,
+    pub children: Vec<TestComponent>,
+}
+
+impl hydron_ui::Component for TestComponent {
+    fn render(&mut self) -> Box<VirtualElement> {
+        template!{
+            <test width={100} height={100}>
+                <test width={100} height={100} />
+            </test>
+        }
+    }
+}
+
 fn main() {
+    let foo = 15;
+    let template = template!{
+        <TestComponent foo={foo}>
+            <TestComponent foo={30} />
+        </TestComponent>
+    };
+    println!("{:#?}", template);
+
     let mut events_loop = glutin::EventsLoop::new();
     let window = glutin::WindowBuilder::new()
         .with_title("hydron")
